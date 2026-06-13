@@ -70,7 +70,7 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-brand-blue/10 bg-white/95 text-brand-blue shadow-[0_12px_38px_rgba(17,48,64,0.10)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:gap-5 lg:px-8">
+      <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-10 xl:grid xl:grid-cols-[auto_1fr_auto] xl:gap-6 xl:px-12 2xl:px-16">
         <Link href="/" className="group flex items-center gap-3" aria-label="Ezee Technologies Digital Labs home">
           <Image
             src="/images/ezee-technologies-logo.png"
@@ -79,11 +79,11 @@ function Header() {
             height={575}
             priority
             sizes="(max-width: 640px) 180px, (max-width: 1024px) 200px, 220px"
-            className="block h-auto w-[180px] flex-shrink-0 sm:w-[200px] lg:w-[220px]"
+            className="block h-auto w-[100px] flex-shrink-0 sm:w-[120px] lg:w-[130px] xl:w-[120px] 2xl:w-[140px]"
           />
         </Link>
 
-        <nav className="hidden items-center gap-0.5 lg:flex xl:gap-1" aria-label="Main navigation">
+        <nav className="hidden items-center gap-0.5 xl:flex xl:justify-center xl:gap-1" aria-label="Main navigation">
           {navigation.map((item) => {
             if (item.label === "Services") {
               return (
@@ -112,7 +112,7 @@ function Header() {
                   </Link>
                   <div
                     className={cn(
-                      "absolute left-1/2 top-full w-[min(960px,calc(100vw-2rem))] -translate-x-1/2 pt-3 transition-all duration-200",
+                      "fixed left-1/2 top-[72px] z-50 w-[min(960px,calc(100vw-2rem))] -translate-x-1/2 pt-3 transition-all duration-200 2xl:top-[88px]",
                       megaOpen
                         ? "visible translate-y-0 opacity-100"
                         : "invisible -translate-y-1 opacity-0"
@@ -202,7 +202,7 @@ function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "whitespace-nowrap rounded-full px-3 py-2 text-sm font-bold text-brand-blue transition hover:bg-brand-light hover:text-brand-teal xl:px-4",
+                  "whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-bold text-brand-blue transition hover:bg-brand-light hover:text-brand-teal 2xl:px-4",
                   pathname === item.href && "bg-brand-light text-brand-teal"
                 )}
               >
@@ -212,10 +212,10 @@ function Header() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex xl:gap-3">
+        <div className="hidden items-center gap-2 xl:flex xl:gap-3">
           <Link
             href="/book-consultation"
-            className="whitespace-nowrap rounded-full border border-brand-blue/15 px-3 py-2 text-sm font-bold text-brand-blue transition hover:border-brand-teal hover:text-brand-teal xl:px-4"
+            className="hidden whitespace-nowrap rounded-full border border-brand-blue/15 px-3 py-2 text-sm font-bold text-brand-blue transition hover:border-brand-teal hover:text-brand-teal 2xl:inline-flex 2xl:px-4"
           >
             Book Consultation
           </Link>
@@ -231,7 +231,7 @@ function Header() {
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className="flex h-11 w-11 items-center justify-center rounded-lg border border-brand-blue/15 text-brand-blue lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-lg border border-brand-blue/15 text-brand-blue xl:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
         >
@@ -239,7 +239,7 @@ function Header() {
         </button>
       </div>
 
-      <div className={cn("max-h-[calc(100vh-72px)] overflow-y-auto border-t border-brand-blue/10 bg-white px-4 transition sm:px-6 lg:hidden", open ? "block" : "hidden")}>
+      <div className={cn("max-h-[calc(100vh-72px)] overflow-y-auto border-t border-brand-blue/10 bg-white px-4 transition sm:px-6 xl:hidden", open ? "block" : "hidden")}>
         <nav className="mx-auto grid max-w-7xl gap-2 py-4" aria-label="Mobile navigation">
           {navigation.map((item) => (
             <Link

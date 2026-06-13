@@ -864,7 +864,7 @@ function ServiceVisualShowcase({ service }: { service: Service }) {
           <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/85 via-brand-blue/30 to-brand-blue/30" />
           <div className="scan-line" />
           <div className="absolute bottom-5 left-5 right-5 rounded-lg border border-white/15 bg-brand-blue/75 p-5 text-white backdrop-blur">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-aqua">EZEE DIGITAL LABS View</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-aqua">EZEE DIGITAL LABS</p>
             <h2 className="mt-2 text-2xl font-bold">{service.title}</h2>
           </div>
         </div>
