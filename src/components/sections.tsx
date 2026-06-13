@@ -695,15 +695,21 @@ export function ServicesHub() {
               </div>
             </div>
           ))}
-          <div className="rounded-lg bg-brand-light p-7">
-            <h2 className="text-2xl font-bold text-brand-blue">Not sure what you need?</h2>
-            <p className="mt-4 text-base leading-8 text-brand-dark/75">
-              Choose Brand Growth if people do not remember you. Choose Automation if your team is repeating manual tasks.
-              Choose ERP if operations are scattered. Choose LMS if training is unstructured. Choose Technology Consultation if
-              you need clarity before spending.
-            </p>
-            <div className="mt-6">
-              <ButtonLink href="/free-digital-audit">Get the Right Service Path</ButtonLink>
+          <div className="relative overflow-hidden rounded-2xl border border-brand-blue/10 bg-white p-7 shadow-[0_18px_48px_rgba(17,48,64,0.10)] sm:p-9">
+            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-teal via-brand-aqua to-brand-orange" />
+            <div aria-hidden className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-aqua/20 blur-3xl" />
+            <div aria-hidden className="pointer-events-none absolute -bottom-20 -left-10 h-52 w-52 rounded-full bg-brand-orange/10 blur-3xl" />
+            <div className="relative">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand-teal">Service Path</p>
+              <h2 className="mt-3 text-2xl font-bold text-brand-blue sm:text-3xl">Not sure what you need?</h2>
+              <p className="mt-4 max-w-3xl text-base leading-8 text-brand-dark/75">
+                Choose Brand Growth if people do not remember you. Choose Automation if your team is repeating manual tasks.
+                Choose ERP if operations are scattered. Choose LMS if training is unstructured. Choose Technology Consultation if
+                you need clarity before spending.
+              </p>
+              <div className="mt-7">
+                <ButtonLink href="/free-digital-audit">Get the Right Service Path</ButtonLink>
+              </div>
             </div>
           </div>
         </div>
@@ -1209,12 +1215,18 @@ export function ProcessPage() {
               </div>
             ))}
           </div>
-          <div className="mt-12 rounded-lg bg-brand-light p-7">
-            <h2 className="text-3xl font-bold text-brand-blue">Governance</h2>
-            <p className="mt-4 text-base leading-8 text-brand-dark/75">
-              Every project includes scope clarity, deliverables, owners, timelines, QA, launch checklist, and optimization plan.
-              This keeps strategy, design, content, development, automation, and reporting aligned from the first conversation.
-            </p>
+          <div className="relative mt-12 overflow-hidden rounded-2xl border border-brand-blue/10 bg-white p-7 shadow-[0_18px_48px_rgba(17,48,64,0.10)] sm:p-9">
+            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-teal via-brand-aqua to-brand-orange" />
+            <div aria-hidden className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-aqua/20 blur-3xl" />
+            <div aria-hidden className="pointer-events-none absolute -bottom-20 -left-10 h-52 w-52 rounded-full bg-brand-orange/10 blur-3xl" />
+            <div className="relative">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand-teal">Governance</p>
+              <h2 className="mt-3 text-2xl font-bold text-brand-blue sm:text-3xl">Aligned execution at every step</h2>
+              <p className="mt-4 text-base leading-8 text-brand-dark/75">
+                Every project includes scope clarity, deliverables, owners, timelines, QA, launch checklist, and optimization plan.
+                This keeps strategy, design, content, development, automation, and reporting aligned from the first conversation.
+              </p>
+            </div>
           </div>
         </div>
       </MotionSection>
@@ -1246,8 +1258,13 @@ export function AboutPage() {
               business-first execution model.
             </p>
           </div>
-          <div className="rounded-lg bg-brand-light p-7">
-            <h2 className="text-3xl font-bold text-brand-blue">Mission</h2>
+          <div className="relative overflow-hidden rounded-2xl border border-brand-blue/10 bg-white p-7 shadow-[0_18px_48px_rgba(17,48,64,0.10)] sm:p-9">
+            <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-teal via-brand-aqua to-brand-orange" />
+            <div aria-hidden className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-aqua/20 blur-3xl" />
+            <div aria-hidden className="pointer-events-none absolute -bottom-20 -left-10 h-52 w-52 rounded-full bg-brand-orange/10 blur-3xl" />
+            <div className="relative">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand-teal">Mission</p>
+            <h2 className="mt-3 text-2xl font-bold text-brand-blue sm:text-3xl">Build connected digital growth.</h2>
             <p className="mt-5 text-base leading-8 text-brand-dark/75">
               To help businesses grow, automate, and transform through intelligent digital strategy, premium execution, and
               scalable technology.
@@ -1256,6 +1273,7 @@ export function AboutPage() {
               {["Strategy before execution", "Clarity before development", "Premium design", "Measurable outcomes", "Business-first technology", "Long-term partnerships"].map((value) => (
                 <ListPill key={value}>{value}</ListPill>
               ))}
+            </div>
             </div>
           </div>
         </div>
@@ -1341,14 +1359,20 @@ export function BlogDetail({ blog }: { blog: Blog }) {
                 ))}
               </section>
             ))}
-            <div className="mt-12 rounded-lg bg-brand-light p-7">
-              <h2 className="mt-0">Suggested Next Step</h2>
-              <p>
-                Want to apply this to your business? Book a Free Digital Growth Audit with Ezee Technologies Digital Labs and
-                get a practical view of your brand, website, systems, automation gaps, and digital growth opportunities.
-              </p>
-              <div className="mt-6">
-                <ButtonLink href="/free-digital-audit">Book a Free Digital Audit</ButtonLink>
+            <div className="relative mt-12 overflow-hidden rounded-2xl border border-brand-blue/10 bg-white p-7 not-prose shadow-[0_18px_48px_rgba(17,48,64,0.10)] sm:p-9">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-teal via-brand-aqua to-brand-orange" />
+              <div aria-hidden className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-aqua/20 blur-3xl" />
+              <div aria-hidden className="pointer-events-none absolute -bottom-20 -left-10 h-52 w-52 rounded-full bg-brand-orange/10 blur-3xl" />
+              <div className="relative">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-brand-teal">Next Step</p>
+                <h2 className="mt-3 text-2xl font-bold text-brand-blue sm:text-3xl">Suggested Next Step</h2>
+                <p className="mt-4 text-base leading-8 text-brand-dark/75">
+                  Want to apply this to your business? Book a Free Digital Growth Audit with Ezee Digital Labs and
+                  get a practical view of your brand, website, systems, automation gaps, and digital growth opportunities.
+                </p>
+                <div className="mt-6">
+                  <ButtonLink href="/free-digital-audit">Book a Free Digital Audit</ButtonLink>
+                </div>
               </div>
             </div>
             <div className="mt-12">

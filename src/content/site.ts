@@ -2108,12 +2108,12 @@ export const globalFaqs: FAQ[] = [
 
 export const navigation = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Insights", href: "/insights" },
-  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" }
 ];
 
