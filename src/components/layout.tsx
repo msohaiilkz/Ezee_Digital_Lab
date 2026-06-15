@@ -338,7 +338,7 @@ function Footer() {
               ]}
             />
             <FooterColumn
-              title="Convert"
+              title="Get Started"
               links={[
                 { label: "Free Digital Audit", href: "/free-digital-audit" },
                 { label: "Book Consultation", href: "/book-consultation" },
