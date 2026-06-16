@@ -6,6 +6,9 @@ import { Loader2, Send } from "lucide-react";
 import { MiniServiceSelector } from "@/components/interactive";
 import { cn } from "@/lib/utils";
 
+const WEB3FORMS_ACCESS_KEY = "c1a247e9-f119-44b8-96f8-d025dbf7964c";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+
 type LeadFormProps = {
   title: string;
   description: string;
@@ -60,32 +63,39 @@ export function LeadForm({
     setSuccess("");
 
     const formData = new FormData(event.currentTarget);
+    formData.set("access_key", WEB3FORMS_ACCESS_KEY);
     formData.set("service", service);
     formData.set("sourcePage", pathname);
     formData.set("formType", formType);
+    formData.set("subject", `[${formType}] ${title} — ${formData.get("fullName") || "New lead"}`);
+    formData.set("from_name", String(formData.get("fullName") || "Website Lead"));
 
-    const response = await fetch(endpoint, {
-      method: "POST",
-      body: formData
-    });
+    try {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        body: formData
+      });
+      const data = await response.json();
+      setLoading(false);
 
-    const data = await response.json();
-    setLoading(false);
+      if (!response.ok || !data.success) {
+        setError(data.message || "Please check the form and try again.");
+        return;
+      }
 
-    if (!response.ok || !data.ok) {
-      setError(data.error || "Please check the form and try again.");
-      return;
+      setSuccess("Your request has been received. We'll be in touch shortly.");
+      trackEvent(eventNameForForm(formType), {
+        formType,
+        service,
+        sourcePage: pathname
+      });
+      setTimeout(() => {
+        router.push(`/thank-you?form=${encodeURIComponent(formType)}`);
+      }, 700);
+    } catch {
+      setLoading(false);
+      setError("Network error. Please try again.");
     }
-
-    setSuccess(data.message || "Your request has been received.");
-    trackEvent(eventNameForForm(formType), {
-      formType,
-      service,
-      sourcePage: pathname
-    });
-    setTimeout(() => {
-      router.push(`/thank-you?form=${encodeURIComponent(formType)}`);
-    }, 700);
   }
 
   return (
@@ -144,19 +154,27 @@ export function NewsletterForm() {
     event.preventDefault();
     setState("loading");
     const formData = new FormData(event.currentTarget);
-    formData.set("fullName", "Newsletter Subscriber");
+    formData.set("access_key", WEB3FORMS_ACCESS_KEY);
+    formData.set("from_name", "Newsletter Subscriber");
+    formData.set("subject", `Newsletter signup — ${email}`);
     formData.set("message", "Newsletter and insight subscription request.");
     formData.set("formType", "newsletter");
     formData.set("sourcePage", "footer");
 
-    const response = await fetch("/api/newsletter", {
-      method: "POST",
-      body: formData
-    });
-    setState(response.ok ? "success" : "error");
-    if (response.ok) {
-      trackEvent("newsletter_submit", { sourcePage: "footer" });
-      setEmail("");
+    try {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        body: formData
+      });
+      const data = await response.json();
+      const ok = response.ok && data.success;
+      setState(ok ? "success" : "error");
+      if (ok) {
+        trackEvent("newsletter_submit", { sourcePage: "footer" });
+        setEmail("");
+      }
+    } catch {
+      setState("error");
     }
   }
 
