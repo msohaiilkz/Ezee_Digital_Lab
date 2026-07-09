@@ -2,6 +2,7 @@
 import "./globals.css";
 import { SiteShell } from "@/components/layout";
 import { site } from "@/content/site";
+import { SITE_LIVE } from "@/lib/config";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -91,6 +92,14 @@ const websiteSchema = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  if (!SITE_LIVE) {
+    return (
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    );
+  }
+
   return (
     <html lang="en">
       <body>

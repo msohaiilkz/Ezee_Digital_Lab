@@ -27,6 +27,7 @@ import {
   site,
   staticPages
 } from "@/content/site";
+import { SITE_LIVE } from "@/lib/config";
 
 type PageProps = {
   params: { slug?: string[] };
@@ -202,6 +203,8 @@ export function generateMetadata({ params }: PageProps): Metadata {
 }
 
 export default function Page({ params }: PageProps) {
+  if (!SITE_LIVE) notFound();
+
   const path = pathFromParams(params);
 
   const breadcrumbSchema = {
